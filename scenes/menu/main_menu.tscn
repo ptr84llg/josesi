@@ -58,25 +58,25 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.01, 0.035, 0.08, 0.08)
+color = Color(0.01, 0.035, 0.08, 0.03)
 mouse_filter = 2
 
 [node name="PortalShadeEdge" type="ColorRect" parent="BackgroundWorld"]
 layout_mode = 0
-offset_left = 930.0
+offset_left = 980.0
 offset_top = 0.0
-offset_right = 1060.0
+offset_right = 1100.0
 offset_bottom = 864.0
-color = Color(0.005, 0.035, 0.09, 0.22)
+color = Color(0.005, 0.035, 0.09, 0.30)
 mouse_filter = 2
 
 [node name="PortalShade" type="ColorRect" parent="BackgroundWorld"]
 layout_mode = 0
-offset_left = 1060.0
+offset_left = 1100.0
 offset_top = 0.0
 offset_right = 1536.0
 offset_bottom = 864.0
-color = Color(0.005, 0.035, 0.09, 0.48)
+color = Color(0.005, 0.035, 0.09, 0.62)
 mouse_filter = 2
 
 [node name="WorldJourneyTrace" type="TextureRect" parent="BackgroundWorld"]
@@ -100,48 +100,50 @@ grow_vertical = 2
 
 [node name="RightPortal" type="Control" parent="SafeArea"]
 layout_mode = 0
-offset_left = 1060.0
+offset_left = 1090.0
 offset_top = 34.0
-offset_right = 1492.0
+offset_right = 1498.0
 offset_bottom = 730.0
 
 [node name="InstitutionLabel" type="Label" parent="SafeArea/RightPortal"]
 layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
-offset_right = 432.0
+offset_right = 408.0
 offset_bottom = 54.0
 theme_override_fonts/font = ExtResource("3_font")
-theme_override_font_sizes/font_size = 16
-theme_override_colors/font_color = Color(0.97, 0.99, 1, 1)
-text = "D E S A I N   K O M U N I K A S I   V I S U A L\nU N I V E R S I T A S   P G R I   S I L A M P A R I"
+theme_override_font_sizes/font_size = 15
+theme_override_constants/outline_size = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.005, 0.03, 0.08, 0.46)
+text = "DESAIN KOMUNIKASI VISUAL\nUNIVERSITAS PGRI SILAMPARI"
 horizontal_alignment = 1
 vertical_alignment = 1
 mouse_filter = 2
 
 [node name="AccentBlue" type="ColorRect" parent="SafeArea/RightPortal"]
 layout_mode = 0
-offset_left = 42.0
+offset_left = 34.0
 offset_top = 58.0
-offset_right = 156.0
+offset_right = 140.0
 offset_bottom = 63.0
 color = Color(0.03, 0.64, 1, 1)
 mouse_filter = 2
 
 [node name="AccentCyan" type="ColorRect" parent="SafeArea/RightPortal"]
 layout_mode = 0
-offset_left = 156.0
+offset_left = 140.0
 offset_top = 58.0
-offset_right = 274.0
+offset_right = 252.0
 offset_bottom = 63.0
 color = Color(0.10, 0.88, 0.88, 1)
 mouse_filter = 2
 
 [node name="AccentOrange" type="ColorRect" parent="SafeArea/RightPortal"]
 layout_mode = 0
-offset_left = 274.0
+offset_left = 252.0
 offset_top = 58.0
-offset_right = 390.0
+offset_right = 374.0
 offset_bottom = 63.0
 color = Color(1, 0.40, 0.22, 1)
 mouse_filter = 2
@@ -149,41 +151,45 @@ mouse_filter = 2
 [node name="BrandBlock" type="Control" parent="SafeArea/RightPortal"]
 layout_mode = 0
 offset_left = 0.0
-offset_top = 72.0
-offset_right = 432.0
-offset_bottom = 270.0
+offset_top = 55.0
+offset_right = 408.0
+offset_bottom = 253.0
 mouse_filter = 2
 
 [node name="Wordmark" parent="SafeArea/RightPortal/BrandBlock" instance=ExtResource("4_wordmark")]
 layout_mode = 0
-offset_left = -2.0
+offset_left = 0.0
 offset_top = 0.0
-offset_right = 434.0
-offset_bottom = 146.0
+offset_right = 408.0
+offset_bottom = 136.0
 
 [node name="StageLine" type="Label" parent="SafeArea/RightPortal/BrandBlock"]
 layout_mode = 0
-offset_left = 2.0
-offset_top = 136.0
-offset_right = 430.0
-offset_bottom = 170.0
+offset_left = 0.0
+offset_top = 140.0
+offset_right = 408.0
+offset_bottom = 168.0
 theme_override_fonts/font = ExtResource("3_font")
-theme_override_font_sizes/font_size = 17
-theme_override_colors/font_color = Color(0.98, 0.99, 1, 1)
-text = "S E E   •   E X P L O R E   •   S O L V E   •   I N T E G R A T E"
+theme_override_font_sizes/font_size = 16
+theme_override_constants/outline_size = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.005, 0.03, 0.08, 0.55)
+text = "SEE  •  EXPLORE  •  SOLVE  •  INTEGRATE"
 horizontal_alignment = 1
 vertical_alignment = 1
 mouse_filter = 2
 
 [node name="SubtitleLabel" type="Label" parent="SafeArea/RightPortal/BrandBlock"]
 layout_mode = 0
-offset_left = 2.0
-offset_top = 168.0
-offset_right = 430.0
+offset_left = 0.0
+offset_top = 170.0
+offset_right = 408.0
 offset_bottom = 198.0
 theme_override_fonts/font = ExtResource("3_font")
-theme_override_font_sizes/font_size = 16
-theme_override_colors/font_color = Color(0.91, 0.95, 1, 0.96)
+theme_override_font_sizes/font_size = 15
+theme_override_constants/outline_size = 1
+theme_override_colors/font_color = Color(0.95, 0.98, 1, 1)
+theme_override_colors/font_outline_color = Color(0.005, 0.03, 0.08, 0.48)
 text = "Melangkah. Mengalami. Merancang Masa Depan."
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -191,9 +197,9 @@ mouse_filter = 2
 
 [node name="MenuStack" type="VBoxContainer" parent="SafeArea/RightPortal"]
 layout_mode = 0
-offset_left = 30.0
+offset_left = 28.0
 offset_top = 280.0
-offset_right = 410.0
+offset_right = 408.0
 offset_bottom = 690.0
 theme_override_constants/separation = 8
 

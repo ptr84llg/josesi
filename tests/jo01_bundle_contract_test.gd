@@ -96,6 +96,43 @@ func _initialize() -> void:
 	if "logo_dkv_unpari_official" in wordmark_text or "josesi_wordmark_letters" in wordmark_text:
 		failures.append("legacy-wordmark-reconstruction-reference-present")
 
+	# R20A visual acceptance contract. Source-text assertions are deliberate:
+	# they make RED/GREEN deterministic and guarantee the test always reaches quit().
+	var action_scene_text := FileAccess.get_file_as_string("res://scenes/ui/action_button.tscn")
+	var action_script_text := FileAccess.get_file_as_string("res://scripts/ui/action_button.gd")
+
+	for token in [
+		"offset_left = 1090.0",
+		"offset_right = 1498.0",
+		"offset_top = 55.0",
+		"color = Color(0.005, 0.035, 0.09, 0.62)",
+		"text = \"SEE  •  EXPLORE  •  SOLVE  •  INTEGRATE\"",
+		"offset_left = 28.0",
+	]:
+		if token not in menu_text:
+			failures.append("visual-main-menu-token-missing:" + token)
+
+	for token in [
+		"patch_margin_top = 14",
+		"patch_margin_bottom = 14",
+		"offset_left = 20.0",
+		"offset_right = 60.0",
+		"offset_left = 82.0",
+	]:
+		if token not in action_scene_text:
+			failures.append("visual-action-scene-token-missing:" + token)
+
+	if "@onready var notification:" in action_script_text:
+		failures.append("visual-action-button-shadow-warning")
+	for token in [
+		"PRIMARY_V_MARGIN := 18",
+		"SECONDARY_V_MARGIN := 14",
+		"notification_badge",
+		"HORIZONTAL_ALIGNMENT_CENTER",
+	]:
+		if token not in action_script_text:
+			failures.append("visual-action-script-token-missing:" + token)
+
 	if failures.is_empty():
 		print("JOSESI_01_BUNDLE_CONTRACT=PASS")
 		quit(0)
