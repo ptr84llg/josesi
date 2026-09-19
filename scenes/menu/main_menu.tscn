@@ -1,0 +1,761 @@
+[gd_scene load_steps=13 format=3]
+
+[ext_resource type="Script" path="res://scripts/menu/main_menu.gd" id="1_menu"]
+[ext_resource type="Texture2D" path="res://assets/menu/world_panorama_concept_reference.png" id="2_panorama"]
+[ext_resource type="Texture2D" path="res://assets/branding/logo_dkv_unpari_official.png" id="3_logo"]
+[ext_resource type="Script" path="res://scripts/ui/stage_progress_indicator.gd" id="4_stage"]
+
+[sub_resource type="StyleBoxFlat" id="PrimaryNormal"]
+bg_color = Color(0.9843, 0.702, 0.1961, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.8392, 0.3882, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0.9843, 0.702, 0.1961, 0.27)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="PrimaryHover"]
+bg_color = Color(1, 0.7765, 0.3294, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.9137, 0.6431, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="PrimaryPressed"]
+bg_color = Color(0.902, 0.6078, 0.1098, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="SecondaryNormal"]
+bg_color = Color(0.0314, 0.1725, 0.2902, 0.95)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.1098, 0.6549, 1, 0.88)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="SecondaryHover"]
+bg_color = Color(0.0431, 0.2353, 0.3922, 0.98)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.1098, 0.6549, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="FocusStyle"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.4275, 0.7804, 1, 0.96)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="JourneyPanel"]
+bg_color = Color(0.0157, 0.1176, 0.2039, 0.95)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.1098, 0.6549, 1, 0.8)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.35)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="ModalPanel"]
+bg_color = Color(0.0157, 0.1176, 0.2039, 0.98)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.1098, 0.6549, 1, 0.9)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0, 0, 0, 0.5)
+shadow_size = 12
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_menu")
+
+[node name="BackgroundWorld" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Panorama" type="TextureRect" parent="BackgroundWorld"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_panorama")
+expand_mode = 1
+stretch_mode = 6
+mouse_filter = 2
+
+[node name="LeftShade" type="ColorRect" parent="BackgroundWorld"]
+layout_mode = 1
+anchor_right = 0.39
+anchor_bottom = 1.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.0118, 0.0745, 0.1294, 0.91)
+
+[node name="TopShade" type="ColorRect" parent="BackgroundWorld"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 120.0
+grow_horizontal = 2
+mouse_filter = 2
+color = Color(0.0078, 0.0471, 0.0941, 0.28)
+
+[node name="SafeArea" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BrandingColumn" type="Control" parent="SafeArea"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 34.0
+offset_right = 545.0
+offset_bottom = 354.0
+mouse_filter = 2
+
+[node name="InstitutionText" type="Label" parent="SafeArea/BrandingColumn"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 4.0
+offset_right = 455.0
+offset_bottom = 62.0
+theme_override_colors/font_color = Color(0.9686, 0.9804, 0.9882, 1)
+theme_override_font_sizes/font_size = 18
+text = "DESAIN KOMUNIKASI VISUAL\nUNIVERSITAS PGRI SILAMPARI"
+vertical_alignment = 1
+
+[node name="AccentBlue" type="ColorRect" parent="SafeArea/BrandingColumn"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 63.0
+offset_right = 78.0
+offset_bottom = 67.0
+color = Color(0.1098, 0.6549, 1, 1)
+mouse_filter = 2
+
+[node name="AccentCyan" type="ColorRect" parent="SafeArea/BrandingColumn"]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 63.0
+offset_right = 145.0
+offset_bottom = 67.0
+color = Color(0.3765, 0.8471, 0.9059, 1)
+mouse_filter = 2
+
+[node name="AccentYellow" type="ColorRect" parent="SafeArea/BrandingColumn"]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 63.0
+offset_right = 212.0
+offset_bottom = 67.0
+color = Color(0.9569, 0.7686, 0.2275, 1)
+mouse_filter = 2
+
+[node name="AccentOrange" type="ColorRect" parent="SafeArea/BrandingColumn"]
+layout_mode = 0
+offset_left = 212.0
+offset_top = 63.0
+offset_right = 278.0
+offset_bottom = 67.0
+color = Color(1, 0.4784, 0.2275, 1)
+mouse_filter = 2
+
+[node name="JosesiWordmark" type="Control" parent="SafeArea/BrandingColumn"]
+layout_mode = 0
+offset_top = 88.0
+offset_right = 470.0
+offset_bottom = 215.0
+mouse_filter = 2
+
+[node name="JLetter" type="Label" parent="SafeArea/BrandingColumn/JosesiWordmark"]
+layout_mode = 0
+offset_right = 82.0
+offset_bottom = 127.0
+theme_override_colors/font_color = Color(0.9686, 0.9804, 0.9882, 1)
+theme_override_font_sizes/font_size = 84
+text = "J"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OLogo" type="TextureRect" parent="SafeArea/BrandingColumn/JosesiWordmark"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 8.0
+offset_right = 192.0
+offset_bottom = 120.0
+texture = ExtResource("3_logo")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+
+[node name="SESILetters" type="Label" parent="SafeArea/BrandingColumn/JosesiWordmark"]
+layout_mode = 0
+offset_left = 190.0
+offset_right = 470.0
+offset_bottom = 127.0
+theme_override_colors/font_color = Color(0.9686, 0.9804, 0.9882, 1)
+theme_override_font_sizes/font_size = 84
+text = "SESI"
+vertical_alignment = 1
+
+[node name="StageLine" type="Label" parent="SafeArea/BrandingColumn"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 225.0
+offset_right = 470.0
+offset_bottom = 260.0
+theme_override_colors/font_color = Color(0.9686, 0.9804, 0.9882, 1)
+theme_override_font_sizes/font_size = 22
+text = "SEE  ·  EXPLORE  ·  SOLVE  ·  INTEGRATE"
+vertical_alignment = 1
+
+[node name="Tagline" type="Label" parent="SafeArea/BrandingColumn"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 265.0
+offset_right = 470.0
+offset_bottom = 307.0
+theme_override_colors/font_color = Color(0.7765, 0.8314, 0.8863, 1)
+theme_override_font_sizes/font_size = 19
+text = "Melangkah. Mengalami. Merancang Masa Depan."
+vertical_alignment = 1
+
+[node name="NavigationColumn" type="Control" parent="SafeArea"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 360.0
+offset_right = 420.0
+offset_bottom = 765.0
+
+[node name="PrimaryCTA" type="Button" parent="SafeArea/NavigationColumn"]
+layout_mode = 0
+offset_right = 360.0
+offset_bottom = 78.0
+focus_mode = 2
+theme_override_colors/font_color = Color(0.0196, 0.1216, 0.2039, 1)
+theme_override_colors/font_hover_color = Color(0.0196, 0.1216, 0.2039, 1)
+theme_override_colors/font_pressed_color = Color(0.0196, 0.1216, 0.2039, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("PrimaryNormal")
+theme_override_styles/hover = SubResource("PrimaryHover")
+theme_override_styles/pressed = SubResource("PrimaryPressed")
+theme_override_styles/focus = SubResource("FocusStyle")
+text = "MULAI PERJALANAN"
+
+[node name="NewJourneyButton" type="Button" parent="SafeArea/NavigationColumn"]
+layout_mode = 0
+offset_top = 90.0
+offset_right = 360.0
+offset_bottom = 144.0
+focus_mode = 2
+theme_override_colors/font_color = Color(0.9686, 0.9804, 0.9882, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("SecondaryNormal")
+theme_override_styles/hover = SubResource("SecondaryHover")
+theme_override_styles/pressed = SubResource("SecondaryHover")
+theme_override_styles/focus = SubResource("FocusStyle")
+text = "PERJALANAN BARU"
+
+[node name="PortfolioButton" type="Button" parent="SafeArea/NavigationColumn"]
+layout_mode = 0
+offset_top = 154.0
+offset_right = 360.0
+offset_bottom = 208.0
+focus_mode = 2
+theme_override_colors/font_color = Color(0.9686, 0.9804, 0.9882, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("SecondaryNormal")
+theme_override_styles/hover = SubResource("SecondaryHover")
+theme_override_styles/pressed = SubResource("SecondaryHover")
+theme_override_styles/focus = SubResource("FocusStyle")
+text = "PORTOFOLIO"
+
+[node name="UnreadDot" type="Label" parent="SafeArea/NavigationColumn/PortfolioButton"]
+layout_mode = 0
+offset_left = 318.0
+offset_top = 8.0
+offset_right = 350.0
+offset_bottom = 40.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 0.2, 0.2, 1)
+theme_override_font_sizes/font_size = 24
+text = "●"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SettingsButton" type="Button" parent="SafeArea/NavigationColumn"]
+layout_mode = 0
+offset_top = 218.0
+offset_right = 360.0
+offset_bottom = 272.0
+focus_mode = 2
+theme_override_colors/font_color = Color(0.9686, 0.9804, 0.9882, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("SecondaryNormal")
+theme_override_styles/hover = SubResource("SecondaryHover")
+theme_override_styles/pressed = SubResource("SecondaryHover")
+theme_override_styles/focus = SubResource("FocusStyle")
+text = "PENGATURAN"
+
+[node name="AboutButton" type="Button" parent="SafeArea/NavigationColumn"]
+layout_mode = 0
+offset_top = 282.0
+offset_right = 360.0
+offset_bottom = 336.0
+focus_mode = 2
+theme_override_colors/font_color = Color(0.9686, 0.9804, 0.9882, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("SecondaryNormal")
+theme_override_styles/hover = SubResource("SecondaryHover")
+theme_override_styles/pressed = SubResource("SecondaryHover")
+theme_override_styles/focus = SubResource("FocusStyle")
+text = "TENTANG"
+
+[node name="ExitButton" type="Button" parent="SafeArea/NavigationColumn"]
+layout_mode = 0
+offset_top = 346.0
+offset_right = 360.0
+offset_bottom = 400.0
+focus_mode = 2
+theme_override_colors/font_color = Color(0.9686, 0.9804, 0.9882, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("SecondaryNormal")
+theme_override_styles/hover = SubResource("SecondaryHover")
+theme_override_styles/pressed = SubResource("SecondaryHover")
+theme_override_styles/focus = SubResource("FocusStyle")
+text = "KELUAR"
+
+[node name="CurrentJourneyPanel" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 465.0
+offset_top = 742.0
+offset_right = 1470.0
+offset_bottom = 852.0
+theme_override_styles/panel = SubResource("JourneyPanel")
+
+[node name="PanelMargin" type="MarginContainer" parent="CurrentJourneyPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 12
+
+[node name="PanelHBox" type="HBoxContainer" parent="CurrentJourneyPanel/PanelMargin"]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="JourneyInfo" type="VBoxContainer" parent="CurrentJourneyPanel/PanelMargin/PanelHBox"]
+custom_minimum_size = Vector2(270, 0)
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="PanelHeading" type="Label" parent="CurrentJourneyPanel/PanelMargin/PanelHBox/JourneyInfo"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7765, 0.8314, 0.8863, 1)
+theme_override_font_sizes/font_size = 14
+text = "PERJALANAN SAAT INI"
+
+[node name="CurrentStageLabel" type="Label" parent="CurrentJourneyPanel/PanelMargin/PanelHBox/JourneyInfo"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9686, 0.9804, 0.9882, 1)
+theme_override_font_sizes/font_size = 18
+text = "SEE — Visual Orientation"
+
+[node name="PortfolioStatusLabel" type="Label" parent="CurrentJourneyPanel/PanelMargin/PanelHBox/JourneyInfo"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7765, 0.8314, 0.8863, 1)
+theme_override_font_sizes/font_size = 15
+text = "Portofolio 0 / 4"
+
+[node name="DestinationInfo" type="VBoxContainer" parent="CurrentJourneyPanel/PanelMargin/PanelHBox"]
+custom_minimum_size = Vector2(230, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="DestinationLabel" type="Label" parent="CurrentJourneyPanel/PanelMargin/PanelHBox/DestinationInfo"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9686, 0.9804, 0.9882, 1)
+theme_override_font_sizes/font_size = 15
+text = "Lanjutkan menuju\nVisual Studio"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="StageProgress" type="Control" parent="CurrentJourneyPanel/PanelMargin/PanelHBox"]
+custom_minimum_size = Vector2(430, 76)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+script = ExtResource("4_stage")
+
+[node name="SEELabel" type="Label" parent="CurrentJourneyPanel/PanelMargin/PanelHBox/StageProgress"]
+layout_mode = 0
+theme_override_colors/font_color = Color(0.4275, 0.7804, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "SEE"
+horizontal_alignment = 1
+
+[node name="EXPLORELabel" type="Label" parent="CurrentJourneyPanel/PanelMargin/PanelHBox/StageProgress"]
+layout_mode = 0
+theme_override_colors/font_color = Color(0.498, 0.5412, 0.5961, 1)
+theme_override_font_sizes/font_size = 12
+text = "EXPLORE"
+horizontal_alignment = 1
+
+[node name="SOLVELabel" type="Label" parent="CurrentJourneyPanel/PanelMargin/PanelHBox/StageProgress"]
+layout_mode = 0
+theme_override_colors/font_color = Color(0.498, 0.5412, 0.5961, 1)
+theme_override_font_sizes/font_size = 12
+text = "SOLVE"
+horizontal_alignment = 1
+
+[node name="INTEGRATELabel" type="Label" parent="CurrentJourneyPanel/PanelMargin/PanelHBox/StageProgress"]
+layout_mode = 0
+theme_override_colors/font_color = Color(0.498, 0.5412, 0.5961, 1)
+theme_override_font_sizes/font_size = 12
+text = "INTEGRATE"
+horizontal_alignment = 1
+
+[node name="Footer" type="Label" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 835.0
+offset_right = 420.0
+offset_bottom = 858.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.9686, 0.9804, 0.9882, 0.82)
+theme_override_font_sizes/font_size = 13
+text = "Development Build  |  JOSESI  |  © 2026"
+
+[node name="OverlayLayer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="SettingsOverlay" type="Control" parent="OverlayLayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+
+[node name="Dim" type="ColorRect" parent="OverlayLayer/SettingsOverlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0078, 0.0706, 0.1216, 0.8)
+mouse_filter = 0
+
+[node name="Panel" type="PanelContainer" parent="OverlayLayer/SettingsOverlay"]
+layout_mode = 0
+offset_left = 493.0
+offset_top = 245.0
+offset_right = 1043.0
+offset_bottom = 620.0
+theme_override_styles/panel = SubResource("ModalPanel")
+
+[node name="PanelMargin" type="MarginContainer" parent="OverlayLayer/SettingsOverlay/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 26
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 26
+
+[node name="Content" type="VBoxContainer" parent="OverlayLayer/SettingsOverlay/Panel/PanelMargin"]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="TitleLabel" type="Label" parent="OverlayLayer/SettingsOverlay/Panel/PanelMargin/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9686, 0.9804, 0.9882, 1)
+theme_override_font_sizes/font_size = 26
+text = "PENGATURAN"
+
+[node name="Description" type="Label" parent="OverlayLayer/SettingsOverlay/Panel/PanelMargin/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7765, 0.8314, 0.8863, 1)
+theme_override_font_sizes/font_size = 16
+text = "Hanya pengaturan yang sudah didukung runtime JOSESI 01 yang ditampilkan."
+autowrap_mode = 2
+
+[node name="ReduceMotionToggle" type="CheckButton" parent="OverlayLayer/SettingsOverlay/Panel/PanelMargin/Content"]
+custom_minimum_size = Vector2(0, 54)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Kurangi Gerakan"
+
+[node name="CloseButton" type="Button" parent="OverlayLayer/SettingsOverlay/Panel/PanelMargin/Content"]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("SecondaryNormal")
+theme_override_styles/hover = SubResource("SecondaryHover")
+theme_override_styles/focus = SubResource("FocusStyle")
+text = "KEMBALI"
+
+[node name="AboutOverlay" type="Control" parent="OverlayLayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+
+[node name="Dim" type="ColorRect" parent="OverlayLayer/AboutOverlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0078, 0.0706, 0.1216, 0.8)
+mouse_filter = 0
+
+[node name="Panel" type="PanelContainer" parent="OverlayLayer/AboutOverlay"]
+layout_mode = 0
+offset_left = 458.0
+offset_top = 205.0
+offset_right = 1078.0
+offset_bottom = 655.0
+theme_override_styles/panel = SubResource("ModalPanel")
+
+[node name="PanelMargin" type="MarginContainer" parent="OverlayLayer/AboutOverlay/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 28
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 28
+
+[node name="Content" type="VBoxContainer" parent="OverlayLayer/AboutOverlay/Panel/PanelMargin"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="TitleLabel" type="Label" parent="OverlayLayer/AboutOverlay/Panel/PanelMargin/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9686, 0.9804, 0.9882, 1)
+theme_override_font_sizes/font_size = 28
+text = "JOSESI"
+
+[node name="BodyLabel" type="Label" parent="OverlayLayer/AboutOverlay/Panel/PanelMargin/Content"]
+custom_minimum_size = Vector2(0, 270)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7765, 0.8314, 0.8863, 1)
+theme_override_font_sizes/font_size = 17
+text = "Desain Komunikasi Visual\nUniversitas PGRI Silampari\n\nSEE · EXPLORE · SOLVE · INTEGRATE\n\nDevelopment / Research Build\n© 2026"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="CloseButton" type="Button" parent="OverlayLayer/AboutOverlay/Panel/PanelMargin/Content"]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("SecondaryNormal")
+theme_override_styles/hover = SubResource("SecondaryHover")
+theme_override_styles/focus = SubResource("FocusStyle")
+text = "KEMBALI"
+
+[node name="ConfirmationModal" type="Control" parent="OverlayLayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+
+[node name="Dim" type="ColorRect" parent="OverlayLayer/ConfirmationModal"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0078, 0.0706, 0.1216, 0.8)
+mouse_filter = 0
+
+[node name="Panel" type="PanelContainer" parent="OverlayLayer/ConfirmationModal"]
+layout_mode = 0
+offset_left = 468.0
+offset_top = 292.0
+offset_right = 1068.0
+offset_bottom = 572.0
+theme_override_styles/panel = SubResource("ModalPanel")
+
+[node name="PanelMargin" type="MarginContainer" parent="OverlayLayer/ConfirmationModal/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 24
+
+[node name="Content" type="VBoxContainer" parent="OverlayLayer/ConfirmationModal/Panel/PanelMargin"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="TitleLabel" type="Label" parent="OverlayLayer/ConfirmationModal/Panel/PanelMargin/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9686, 0.9804, 0.9882, 1)
+theme_override_font_sizes/font_size = 24
+text = "Konfirmasi"
+horizontal_alignment = 1
+
+[node name="BodyLabel" type="Label" parent="OverlayLayer/ConfirmationModal/Panel/PanelMargin/Content"]
+custom_minimum_size = Vector2(0, 85)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7765, 0.8314, 0.8863, 1)
+theme_override_font_sizes/font_size = 17
+text = "Konfirmasi tindakan."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="OverlayLayer/ConfirmationModal/Panel/PanelMargin/Content"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="CancelButton" type="Button" parent="OverlayLayer/ConfirmationModal/Panel/PanelMargin/Content/Buttons"]
+custom_minimum_size = Vector2(210, 52)
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("SecondaryNormal")
+theme_override_styles/hover = SubResource("SecondaryHover")
+theme_override_styles/focus = SubResource("FocusStyle")
+text = "BATAL"
+
+[node name="AcceptButton" type="Button" parent="OverlayLayer/ConfirmationModal/Panel/PanelMargin/Content/Buttons"]
+custom_minimum_size = Vector2(250, 52)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0196, 0.1216, 0.2039, 1)
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("PrimaryNormal")
+theme_override_styles/hover = SubResource("PrimaryHover")
+theme_override_styles/focus = SubResource("FocusStyle")
+text = "LANJUTKAN"
+
+[node name="InfoModal" type="Control" parent="OverlayLayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+
+[node name="Dim" type="ColorRect" parent="OverlayLayer/InfoModal"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0078, 0.0706, 0.1216, 0.8)
+mouse_filter = 0
+
+[node name="Panel" type="PanelContainer" parent="OverlayLayer/InfoModal"]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 275.0
+offset_right = 1088.0
+offset_bottom = 590.0
+theme_override_styles/panel = SubResource("ModalPanel")
+
+[node name="PanelMargin" type="MarginContainer" parent="OverlayLayer/InfoModal/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 26
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 26
+
+[node name="Content" type="VBoxContainer" parent="OverlayLayer/InfoModal/Panel/PanelMargin"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="TitleLabel" type="Label" parent="OverlayLayer/InfoModal/Panel/PanelMargin/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9686, 0.9804, 0.9882, 1)
+theme_override_font_sizes/font_size = 24
+text = "INFORMASI"
+horizontal_alignment = 1
+
+[node name="BodyLabel" type="Label" parent="OverlayLayer/InfoModal/Panel/PanelMargin/Content"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7765, 0.8314, 0.8863, 1)
+theme_override_font_sizes/font_size = 17
+text = "Informasi"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="CloseButton" type="Button" parent="OverlayLayer/InfoModal/Panel/PanelMargin/Content"]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("SecondaryNormal")
+theme_override_styles/hover = SubResource("SecondaryHover")
+theme_override_styles/focus = SubResource("FocusStyle")
+text = "KEMBALI"

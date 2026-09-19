@@ -1,0 +1,313 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/startup/splash_loader.gd" id="1_splash"]
+[ext_resource type="Texture2D" path="res://assets/branding/logo_dkv_unpari_official.png" id="2_logo"]
+[ext_resource type="Script" path="res://scripts/ui/journey_trace.gd" id="3_trace"]
+
+[sub_resource type="StyleBoxFlat" id="StyleErrorPanel"]
+bg_color = Color(0.0157, 0.1176, 0.2039, 0.97)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.1137, 0.6549, 1, 0.92)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0, 0, 0, 0.45)
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleOverlayButton"]
+bg_color = Color(0.0314, 0.1725, 0.2902, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.1137, 0.6549, 1, 0.9)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+
+[node name="SplashLoaderRoot" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_splash")
+
+[node name="BackgroundLayer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Base" type="ColorRect" parent="BackgroundLayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.0549, 0.0941, 0.1882, 1)
+
+[node name="TopAtmosphere" type="ColorRect" parent="BackgroundLayer"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 210.0
+grow_horizontal = 2
+mouse_filter = 2
+color = Color(0.0784, 0.1373, 0.2863, 0.48)
+
+[node name="BottomAtmosphere" type="ColorRect" parent="BackgroundLayer"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -250.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+color = Color(0.0157, 0.0549, 0.1176, 0.72)
+
+[node name="IdentityLayer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="InstitutionalText" type="Label" parent="IdentityLayer"]
+layout_mode = 0
+offset_left = 496.0
+offset_top = 128.0
+offset_right = 1040.0
+offset_bottom = 182.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.9686, 0.9725, 0.9804, 1)
+theme_override_font_sizes/font_size = 20
+text = "DESAIN KOMUNIKASI VISUAL\nUNIVERSITAS PGRI SILAMPARI"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="JOSESIWordmark" type="Control" parent="IdentityLayer"]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 188.0
+offset_right = 1136.0
+offset_bottom = 320.0
+mouse_filter = 2
+
+[node name="JLetter" type="Label" parent="IdentityLayer/JOSESIWordmark"]
+layout_mode = 0
+offset_right = 118.0
+offset_bottom = 132.0
+theme_override_colors/font_color = Color(0.9686, 0.9725, 0.9804, 1)
+theme_override_font_sizes/font_size = 104
+text = "J"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OLogo" type="TextureRect" parent="IdentityLayer/JOSESIWordmark"]
+layout_mode = 0
+offset_left = 118.0
+offset_top = 2.0
+offset_right = 248.0
+offset_bottom = 132.0
+texture = ExtResource("2_logo")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+
+[node name="SESILetters" type="Label" parent="IdentityLayer/JOSESIWordmark"]
+layout_mode = 0
+offset_left = 246.0
+offset_right = 736.0
+offset_bottom = 132.0
+theme_override_colors/font_color = Color(0.9686, 0.9725, 0.9804, 1)
+theme_override_font_sizes/font_size = 104
+text = "SESI"
+vertical_alignment = 1
+
+[node name="StageLine" type="Label" parent="IdentityLayer"]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 322.0
+offset_right = 1096.0
+offset_bottom = 356.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.9686, 0.9725, 0.9804, 0.96)
+theme_override_font_sizes/font_size = 25
+text = "SEE  ·  EXPLORE  ·  SOLVE  ·  INTEGRATE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LoaderLayer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="LoadingTitle" type="Label" parent="LoaderLayer"]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 468.0
+offset_right = 1016.0
+offset_bottom = 508.0
+theme_override_colors/font_color = Color(0.9686, 0.9725, 0.9804, 1)
+theme_override_font_sizes/font_size = 26
+text = "MENYIAPKAN PERJALANAN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LoadingStatus" type="Label" parent="LoaderLayer"]
+layout_mode = 0
+offset_left = 498.0
+offset_top = 518.0
+offset_right = 1038.0
+offset_bottom = 544.0
+theme_override_colors/font_color = Color(0.7804, 0.8235, 0.8902, 1)
+theme_override_font_sizes/font_size = 19
+text = "Menyiapkan konfigurasi inti..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TraceLoader" type="Control" parent="LoaderLayer"]
+layout_mode = 0
+offset_left = 418.0
+offset_top = 584.0
+offset_right = 1118.0
+offset_bottom = 622.0
+mouse_filter = 2
+script = ExtResource("3_trace")
+
+[node name="PercentageLabel" type="Label" parent="LoaderLayer"]
+layout_mode = 0
+offset_left = 711.0
+offset_top = 632.0
+offset_right = 825.0
+offset_bottom = 674.0
+theme_override_colors/font_color = Color(0.9686, 0.9725, 0.9804, 1)
+theme_override_font_sizes/font_size = 25
+text = "0%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OverlayLayer" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+
+[node name="Dim" type="ColorRect" parent="OverlayLayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+color = Color(0.0078, 0.0353, 0.0706, 0.72)
+
+[node name="WarningErrorPanel" type="PanelContainer" parent="OverlayLayer"]
+layout_mode = 0
+offset_left = 468.0
+offset_top = 300.0
+offset_right = 1068.0
+offset_bottom = 566.0
+theme_override_styles/panel = SubResource("StyleErrorPanel")
+
+[node name="PanelMargin" type="MarginContainer" parent="OverlayLayer/WarningErrorPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 24
+
+[node name="PanelVBox" type="VBoxContainer" parent="OverlayLayer/WarningErrorPanel/PanelMargin"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="TitleLabel" type="Label" parent="OverlayLayer/WarningErrorPanel/PanelMargin/PanelVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9686, 0.9725, 0.9804, 1)
+theme_override_font_sizes/font_size = 24
+text = "PEMUATAN TERHENTI"
+horizontal_alignment = 1
+
+[node name="MessageLabel" type="Label" parent="OverlayLayer/WarningErrorPanel/PanelMargin/PanelVBox"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7804, 0.8235, 0.8902, 1)
+theme_override_font_sizes/font_size = 18
+text = "Pesan kesalahan"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="OverlayLayer/WarningErrorPanel/PanelMargin/PanelVBox"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="RetryButton" type="Button" parent="OverlayLayer/WarningErrorPanel/PanelMargin/PanelVBox/Buttons"]
+custom_minimum_size = Vector2(190, 52)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleOverlayButton")
+text = "COBA LAGI"
+
+[node name="ExitButton" type="Button" parent="OverlayLayer/WarningErrorPanel/PanelMargin/PanelVBox/Buttons"]
+custom_minimum_size = Vector2(190, 52)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleOverlayButton")
+text = "KELUAR"
+
+[node name="FooterLayer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BuildLabel" type="Label" parent="FooterLayer"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 806.0
+offset_right = 400.0
+offset_bottom = 830.0
+theme_override_colors/font_color = Color(0.7804, 0.8235, 0.8902, 0.9)
+theme_override_font_sizes/font_size = 14
+text = "JOSESI v0.1.0  •  DEVELOPMENT BUILD"
+vertical_alignment = 1
+
+[node name="TransitionCover" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.0549, 0.0941, 0.1882, 1)
