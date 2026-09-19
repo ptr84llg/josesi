@@ -1,11 +1,18 @@
-[gd_scene load_steps=10 format=3]
+[gd_scene load_steps=8 format=3]
 
 [ext_resource type="Script" path="res://scripts/startup/splash_loader.gd" id="1_script"]
-[ext_resource type="Texture2D" path="res://assets/menu/world_panorama_concept_reference.png" id="2_panorama"]
-[ext_resource type="Texture2D" path="res://assets/branding/logo_dkv_unpari_official.png" id="3_logo"]
-[ext_resource type="FontFile" path="res://assets/fonts/Fredoka-VariableFont_wdth,wght.ttf" id="4_title_font"]
-[ext_resource type="FontFile" path="res://assets/fonts/Manrope-VariableFont_wght.ttf" id="5_ui_font"]
-[ext_resource type="Script" path="res://scripts/ui/journey_trace.gd" id="6_trace_script"]
+[ext_resource type="Texture2D" path="res://assets/runtime/splash_visual_master.png" id="2_visual"]
+[ext_resource type="FontFile" path="res://assets/fonts/Manrope-VariableFont_wght.ttf" id="3_ui_font"]
+[ext_resource type="Script" path="res://scripts/ui/journey_trace.gd" id="4_trace_script"]
+
+[sub_resource type="StyleBoxFlat" id="DynamicAreaStyle"]
+bg_color = Color(0.015, 0.075, 0.18, 0.74)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_color = Color(0, 0, 0, 0.18)
+shadow_size = 18
 
 [node name="SplashLoader" type="Control"]
 layout_mode = 3
@@ -25,36 +32,16 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Panorama" type="TextureRect" parent="Background"]
+[node name="VisualMaster" type="TextureRect" parent="Background"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_panorama")
+texture = ExtResource("2_visual")
 expand_mode = 1
 stretch_mode = 6
-modulate = Color(0.36, 0.43, 0.60, 1)
-mouse_filter = 2
-
-[node name="BlueWash" type="ColorRect" parent="Background"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.02, 0.13, 0.31, 0.70)
-mouse_filter = 2
-
-[node name="TopGlow" type="ColorRect" parent="Background"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 190.0
-grow_horizontal = 2
-color = Color(0.12, 0.27, 0.58, 0.18)
 mouse_filter = 2
 
 [node name="SafeArea" type="Control" parent="."]
@@ -65,179 +52,91 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="InstitutionRow" type="Control" parent="SafeArea"]
-layout_mode = 0
-offset_left = 330.0
-offset_top = 84.0
-offset_right = 1206.0
-offset_bottom = 160.0
-mouse_filter = 2
-
-[node name="LeftLine" type="ColorRect" parent="SafeArea/InstitutionRow"]
-layout_mode = 0
-offset_left = 74.0
-offset_top = 28.0
-offset_right = 210.0
-offset_bottom = 31.0
-color = Color(0.92, 0.96, 1, 0.76)
-
-[node name="RightLine" type="ColorRect" parent="SafeArea/InstitutionRow"]
-layout_mode = 0
-offset_left = 666.0
-offset_top = 28.0
-offset_right = 802.0
-offset_bottom = 31.0
-color = Color(0.92, 0.96, 1, 0.76)
-
-[node name="InstitutionLabel" type="Label" parent="SafeArea/InstitutionRow"]
-layout_mode = 0
-offset_left = 208.0
-offset_top = 0.0
-offset_right = 668.0
-offset_bottom = 64.0
-theme_override_fonts/font = ExtResource("5_ui_font")
-theme_override_font_sizes/font_size = 24
-theme_override_colors/font_color = Color(0.95, 0.97, 1, 0.94)
-text = "DESAIN KOMUNIKASI VISUAL
-UNIVERSITAS PGRI SILAMPARI"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="ContentStack" type="Control" parent="SafeArea"]
 layout_mode = 0
-offset_left = 220.0
-offset_top = 186.0
-offset_right = 1316.0
-offset_bottom = 755.0
-
-[node name="Wordmark" type="Control" parent="SafeArea/ContentStack"]
-layout_mode = 0
-offset_left = 34.0
-offset_top = 0.0
-offset_right = 1060.0
-offset_bottom = 214.0
-mouse_filter = 2
-
-[node name="JLabel" type="Label" parent="SafeArea/ContentStack/Wordmark"]
-layout_mode = 0
-offset_left = 26.0
-offset_top = 18.0
-offset_right = 168.0
-offset_bottom = 194.0
-theme_override_fonts/font = ExtResource("4_title_font")
-theme_override_font_sizes/font_size = 150
-theme_override_constants/outline_size = 3
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0.04, 0.13, 0.27, 0.72)
-text = "J"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="OLogo" type="TextureRect" parent="SafeArea/ContentStack/Wordmark"]
-layout_mode = 0
-offset_left = 160.0
-offset_top = 10.0
-offset_right = 400.0
-offset_bottom = 204.0
-texture = ExtResource("3_logo")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="SESILabel" type="Label" parent="SafeArea/ContentStack/Wordmark"]
-layout_mode = 0
-offset_left = 390.0
-offset_top = 18.0
-offset_right = 942.0
-offset_bottom = 194.0
-theme_override_fonts/font = ExtResource("4_title_font")
-theme_override_font_sizes/font_size = 148
-theme_override_constants/outline_size = 3
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0.04, 0.13, 0.27, 0.72)
-text = "SESI"
-vertical_alignment = 1
-
-[node name="LeafAccent" type="Label" parent="SafeArea/ContentStack/Wordmark"]
-layout_mode = 0
-offset_left = 912.0
-offset_top = -2.0
-offset_right = 980.0
-offset_bottom = 74.0
-rotation = 0.18
-theme_override_fonts/font = ExtResource("4_title_font")
-theme_override_font_sizes/font_size = 46
-theme_override_colors/font_color = Color(0.66, 0.94, 0.33, 1)
-text = "❧"
-horizontal_alignment = 1
-vertical_alignment = 1
+offset_left = 250.0
+offset_top = 405.0
+offset_right = 1286.0
+offset_bottom = 820.0
 
 [node name="StageLabel" type="Label" parent="SafeArea/ContentStack"]
 layout_mode = 0
-offset_left = 206.0
-offset_top = 214.0
-offset_right = 892.0
-offset_bottom = 266.0
-theme_override_fonts/font = ExtResource("5_ui_font")
-theme_override_font_sizes/font_size = 30
-theme_override_colors/font_color = Color(0.97, 0.98, 1, 0.98)
-text = "SEE • EXPLORE • SOLVE • INTEGRATE"
+offset_left = 160.0
+offset_top = 0.0
+offset_right = 876.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("3_ui_font")
+theme_override_font_sizes/font_size = 28
+theme_override_colors/font_color = Color(0.95, 0.98, 1, 0.97)
+text = "SEE  •  EXPLORE  •  SOLVE  •  INTEGRATE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="DynamicPanel" type="PanelContainer" parent="SafeArea/ContentStack"]
+layout_mode = 0
+offset_left = 122.0
+offset_top = 82.0
+offset_right = 914.0
+offset_bottom = 404.0
+theme_override_styles/panel = SubResource("DynamicAreaStyle")
+mouse_filter = 2
+
 [node name="StatusStack" type="VBoxContainer" parent="SafeArea/ContentStack"]
 layout_mode = 0
-offset_left = 258.0
-offset_top = 360.0
-offset_right = 836.0
-offset_bottom = 500.0
-theme_override_constants/separation = 10
+offset_left = 190.0
+offset_top = 112.0
+offset_right = 846.0
+offset_bottom = 222.0
+theme_override_constants/separation = 8
 alignment = 1
 
 [node name="HeadlineLabel" type="Label" parent="SafeArea/ContentStack/StatusStack"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_ui_font")
-theme_override_font_sizes/font_size = 52
-theme_override_colors/font_color = Color(1, 1, 1, 0.98)
+theme_override_fonts/font = ExtResource("3_ui_font")
+theme_override_font_sizes/font_size = 39
+theme_override_constants/outline_size = 5
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.01, 0.05, 0.14, 0.72)
 text = "MENYIAPKAN PERJALANAN"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="StatusLabel" type="Label" parent="SafeArea/ContentStack/StatusStack"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_ui_font")
-theme_override_font_sizes/font_size = 27
-theme_override_colors/font_color = Color(0.83, 0.89, 0.97, 0.96)
+theme_override_fonts/font = ExtResource("3_ui_font")
+theme_override_font_sizes/font_size = 21
+theme_override_colors/font_color = Color(0.86, 0.92, 1, 0.96)
 text = "Menyiapkan antarmuka..."
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LoaderStack" type="Control" parent="SafeArea/ContentStack"]
 layout_mode = 0
-offset_left = 172.0
-offset_top = 502.0
-offset_right = 948.0
-offset_bottom = 678.0
+offset_left = 178.0
+offset_top = 226.0
+offset_right = 858.0
+offset_bottom = 392.0
 
 [node name="JourneyTrace" type="Control" parent="SafeArea/ContentStack/LoaderStack"]
 layout_mode = 0
 offset_left = 0.0
-offset_top = 8.0
-offset_right = 772.0
-offset_bottom = 84.0
-script = ExtResource("6_trace_script")
-amplitude = 16.0
-thickness = 8.0
-glow_thickness = 18.0
+offset_top = 6.0
+offset_right = 680.0
+offset_bottom = 82.0
+script = ExtResource("4_trace_script")
+amplitude = 14.0
+thickness = 7.0
+glow_thickness = 16.0
 
 [node name="PercentLabel" type="Label" parent="SafeArea/ContentStack/LoaderStack"]
 layout_mode = 0
 offset_left = 0.0
-offset_top = 84.0
-offset_right = 772.0
-offset_bottom = 144.0
-theme_override_fonts/font = ExtResource("5_ui_font")
-theme_override_font_sizes/font_size = 33
-theme_override_colors/font_color = Color(1, 1, 1, 0.97)
+offset_top = 82.0
+offset_right = 680.0
+offset_bottom = 138.0
+theme_override_fonts/font = ExtResource("3_ui_font")
+theme_override_font_sizes/font_size = 28
+theme_override_colors/font_color = Color(1, 1, 1, 0.98)
 text = "0%"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -248,10 +147,10 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 36.0
-offset_top = -60.0
-offset_right = -36.0
-offset_bottom = -16.0
+offset_left = 40.0
+offset_top = -52.0
+offset_right = -40.0
+offset_bottom = -12.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
@@ -262,13 +161,13 @@ anchors_preset = 3
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -380.0
-offset_top = -36.0
+offset_left = -360.0
+offset_top = 0.0
 offset_right = 0.0
-offset_bottom = 0.0
-theme_override_fonts/font = ExtResource("5_ui_font")
-theme_override_font_sizes/font_size = 18
-theme_override_colors/font_color = Color(0.95, 0.97, 1, 0.92)
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("3_ui_font")
+theme_override_font_sizes/font_size = 14
+theme_override_colors/font_color = Color(0.91, 0.95, 1, 0.84)
 text = "JOSESI v0.1.1 • DEVELOPMENT BUILD"
 horizontal_alignment = 2
 vertical_alignment = 1
