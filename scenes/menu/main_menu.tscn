@@ -1,113 +1,23 @@
-[gd_scene load_steps=22 format=3]
+[gd_scene load_steps=19 format=3]
 
 [ext_resource type="Script" path="res://scripts/menu/main_menu.gd" id="1_script"]
-[ext_resource type="Texture2D" path="res://assets/runtime/menu_environment_master.png" id="2_environment"]
-[ext_resource type="Texture2D" path="res://assets/branding/josesi_wordmark_letters.png" id="3_wordmark"]
-[ext_resource type="Texture2D" path="res://assets/branding/logo_dkv_unpari_official.png" id="4_logo"]
-[ext_resource type="FontFile" path="res://assets/fonts/Manrope-VariableFont_wght.ttf" id="5_ui_font"]
-[ext_resource type="Script" path="res://scripts/ui/stage_progress_indicator.gd" id="6_stage_script"]
-[ext_resource type="Texture2D" path="res://assets/ui/icons/play.svg" id="7_play"]
-[ext_resource type="Texture2D" path="res://assets/ui/icons/new_journey.svg" id="8_new"]
-[ext_resource type="Texture2D" path="res://assets/ui/icons/portfolio.svg" id="9_portfolio"]
-[ext_resource type="Texture2D" path="res://assets/ui/icons/settings.svg" id="10_settings"]
-[ext_resource type="Texture2D" path="res://assets/ui/icons/about.svg" id="11_about"]
-[ext_resource type="Texture2D" path="res://assets/ui/icons/exit.svg" id="12_exit"]
-
-[sub_resource type="StyleBoxFlat" id="PrimaryNormal"]
-content_margin_left = 24.0
-content_margin_right = 24.0
-bg_color = Color(1, 0.72, 0.08, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(1, 0.89, 0.35, 1)
-corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
-shadow_color = Color(1, 0.56, 0.02, 0.34)
-shadow_size = 14
-
-[sub_resource type="StyleBoxFlat" id="PrimaryHover"]
-content_margin_left = 24.0
-content_margin_right = 24.0
-bg_color = Color(1, 0.79, 0.16, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(1, 0.96, 0.64, 1)
-corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
-shadow_color = Color(1, 0.62, 0.04, 0.44)
-shadow_size = 16
-
-[sub_resource type="StyleBoxFlat" id="SecondaryNormal"]
-content_margin_left = 22.0
-content_margin_right = 22.0
-bg_color = Color(0.015, 0.12, 0.24, 0.92)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.10, 0.62, 0.96, 0.88)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
-
-[sub_resource type="StyleBoxFlat" id="SecondaryHover"]
-content_margin_left = 22.0
-content_margin_right = 22.0
-bg_color = Color(0.03, 0.19, 0.34, 0.96)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.33, 0.82, 1, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
-
-[sub_resource type="StyleBoxFlat" id="JourneyPanelStyle"]
-content_margin_left = 22.0
-content_margin_top = 12.0
-content_margin_right = 22.0
-content_margin_bottom = 12.0
-bg_color = Color(0.01, 0.08, 0.18, 0.94)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.12, 0.58, 0.92, 0.76)
-corner_radius_top_left = 18
-corner_radius_top_right = 18
-corner_radius_bottom_right = 18
-corner_radius_bottom_left = 18
-shadow_color = Color(0, 0, 0, 0.34)
-shadow_size = 12
-
-[sub_resource type="StyleBoxFlat" id="ModalStyle"]
-content_margin_left = 30.0
-content_margin_top = 24.0
-content_margin_right = 30.0
-content_margin_bottom = 24.0
-bg_color = Color(0.01, 0.08, 0.18, 0.98)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.24, 0.76, 1, 0.94)
-corner_radius_top_left = 22
-corner_radius_top_right = 22
-corner_radius_bottom_right = 22
-corner_radius_bottom_left = 22
-shadow_color = Color(0, 0, 0, 0.5)
-shadow_size = 16
+[ext_resource type="Texture2D" path="res://assets/backgrounds/menu/background_main_menu.png" id="2_background"]
+[ext_resource type="FontFile" path="res://assets/fonts/Manrope-VariableFont_wght.ttf" id="3_font"]
+[ext_resource type="PackedScene" path="res://scenes/ui/josesi_wordmark.tscn" id="4_wordmark"]
+[ext_resource type="PackedScene" path="res://scenes/ui/action_button.tscn" id="5_button"]
+[ext_resource type="PackedScene" path="res://scenes/ui/stage_progress_strip.tscn" id="6_progress"]
+[ext_resource type="Texture2D" path="res://assets/ui/journey/menu_trace.png" id="7_trace"]
+[ext_resource type="Texture2D" path="res://assets/ui/icons/play.png" id="8_play"]
+[ext_resource type="Texture2D" path="res://assets/ui/icons/restart.png" id="9_restart"]
+[ext_resource type="Texture2D" path="res://assets/ui/icons/portfolio.png" id="10_portfolio"]
+[ext_resource type="Texture2D" path="res://assets/ui/icons/settings.png" id="11_settings"]
+[ext_resource type="Texture2D" path="res://assets/ui/icons/about.png" id="12_about"]
+[ext_resource type="Texture2D" path="res://assets/ui/icons/exit.png" id="13_exit"]
+[ext_resource type="Texture2D" path="res://assets/ui/icons/current.png" id="14_current"]
+[ext_resource type="Texture2D" path="res://assets/ui/icons/chevron.png" id="15_chevron"]
+[ext_resource type="Texture2D" path="res://assets/ui/panels/journey_dock.png" id="16_dock"]
+[ext_resource type="Texture2D" path="res://assets/ui/panels/modal.png" id="17_modal"]
+[ext_resource type="Texture2D" path="res://assets/ui/icons/complete.png" id="18_complete"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -117,6 +27,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_script")
+current_stage_texture = ExtResource("14_current")
+complete_stage_texture = ExtResource("18_complete")
 
 [node name="BackgroundWorld" type="Control" parent="."]
 layout_mode = 1
@@ -127,14 +39,14 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Panorama" type="TextureRect" parent="BackgroundWorld"]
+[node name="Environment" type="TextureRect" parent="BackgroundWorld"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_environment")
+texture = ExtResource("2_background")
 expand_mode = 1
 stretch_mode = 6
 mouse_filter = 2
@@ -146,34 +58,36 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.01, 0.035, 0.08, 0.10)
+color = Color(0.01, 0.035, 0.08, 0.08)
 mouse_filter = 2
 
-[node name="LeftShadeCore" type="ColorRect" parent="BackgroundWorld"]
+[node name="PortalShadeEdge" type="ColorRect" parent="BackgroundWorld"]
 layout_mode = 0
-offset_left = 0.0
+offset_left = 930.0
 offset_top = 0.0
-offset_right = 430.0
+offset_right = 1060.0
 offset_bottom = 864.0
-color = Color(0.005, 0.04, 0.10, 0.83)
+color = Color(0.005, 0.035, 0.09, 0.22)
 mouse_filter = 2
 
-[node name="LeftShadeMid" type="ColorRect" parent="BackgroundWorld"]
+[node name="PortalShade" type="ColorRect" parent="BackgroundWorld"]
 layout_mode = 0
-offset_left = 430.0
+offset_left = 1060.0
 offset_top = 0.0
-offset_right = 500.0
+offset_right = 1536.0
 offset_bottom = 864.0
-color = Color(0.005, 0.04, 0.10, 0.50)
+color = Color(0.005, 0.035, 0.09, 0.48)
 mouse_filter = 2
 
-[node name="LeftShadeEdge" type="ColorRect" parent="BackgroundWorld"]
+[node name="WorldJourneyTrace" type="TextureRect" parent="BackgroundWorld"]
 layout_mode = 0
-offset_left = 500.0
-offset_top = 0.0
-offset_right = 560.0
-offset_bottom = 864.0
-color = Color(0.005, 0.04, 0.10, 0.20)
+offset_left = 515.0
+offset_top = 352.0
+offset_right = 1192.0
+offset_bottom = 465.0
+texture = ExtResource("7_trace")
+expand_mode = 1
+stretch_mode = 6
 mouse_filter = 2
 
 [node name="SafeArea" type="Control" parent="."]
@@ -184,295 +98,249 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="LeftColumn" type="Control" parent="SafeArea"]
+[node name="RightPortal" type="Control" parent="SafeArea"]
+layout_mode = 0
+offset_left = 1060.0
+offset_top = 34.0
+offset_right = 1492.0
+offset_bottom = 730.0
+
+[node name="InstitutionLabel" type="Label" parent="SafeArea/RightPortal"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 432.0
+offset_bottom = 54.0
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0.97, 0.99, 1, 1)
+text = "D E S A I N   K O M U N I K A S I   V I S U A L\nU N I V E R S I T A S   P G R I   S I L A M P A R I"
+horizontal_alignment = 1
+vertical_alignment = 1
+mouse_filter = 2
+
+[node name="AccentBlue" type="ColorRect" parent="SafeArea/RightPortal"]
 layout_mode = 0
 offset_left = 42.0
-offset_top = 28.0
+offset_top = 58.0
+offset_right = 156.0
+offset_bottom = 63.0
+color = Color(0.03, 0.64, 1, 1)
+mouse_filter = 2
+
+[node name="AccentCyan" type="ColorRect" parent="SafeArea/RightPortal"]
+layout_mode = 0
+offset_left = 156.0
+offset_top = 58.0
+offset_right = 274.0
+offset_bottom = 63.0
+color = Color(0.10, 0.88, 0.88, 1)
+mouse_filter = 2
+
+[node name="AccentOrange" type="ColorRect" parent="SafeArea/RightPortal"]
+layout_mode = 0
+offset_left = 274.0
+offset_top = 58.0
+offset_right = 390.0
+offset_bottom = 63.0
+color = Color(1, 0.40, 0.22, 1)
+mouse_filter = 2
+
+[node name="BrandBlock" type="Control" parent="SafeArea/RightPortal"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 72.0
+offset_right = 432.0
+offset_bottom = 270.0
+mouse_filter = 2
+
+[node name="Wordmark" parent="SafeArea/RightPortal/BrandBlock" instance=ExtResource("4_wordmark")]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 0.0
+offset_right = 434.0
+offset_bottom = 146.0
+
+[node name="StageLine" type="Label" parent="SafeArea/RightPortal/BrandBlock"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 136.0
 offset_right = 430.0
-offset_bottom = 716.0
-
-[node name="InstitutionLabel" type="Label" parent="SafeArea/LeftColumn"]
-layout_mode = 0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 370.0
-offset_bottom = 66.0
-theme_override_fonts/font = ExtResource("5_ui_font")
+offset_bottom = 170.0
+theme_override_fonts/font = ExtResource("3_font")
 theme_override_font_sizes/font_size = 17
-theme_override_colors/font_color = Color(0.96, 0.98, 1, 0.98)
-text = "DESAIN KOMUNIKASI VISUAL\nUNIVERSITAS PGRI SILAMPARI"
+theme_override_colors/font_color = Color(0.98, 0.99, 1, 1)
+text = "S E E   •   E X P L O R E   •   S O L V E   •   I N T E G R A T E"
+horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="AccentBlue" type="ColorRect" parent="SafeArea/LeftColumn"]
-layout_mode = 0
-offset_left = 0.0
-offset_top = 70.0
-offset_right = 72.0
-offset_bottom = 75.0
-color = Color(0.04, 0.64, 1, 1)
-
-[node name="AccentCyan" type="ColorRect" parent="SafeArea/LeftColumn"]
-layout_mode = 0
-offset_left = 72.0
-offset_top = 70.0
-offset_right = 148.0
-offset_bottom = 75.0
-color = Color(0.12, 0.88, 0.88, 1)
-
-[node name="AccentOrange" type="ColorRect" parent="SafeArea/LeftColumn"]
-layout_mode = 0
-offset_left = 148.0
-offset_top = 70.0
-offset_right = 244.0
-offset_bottom = 75.0
-color = Color(1, 0.42, 0.25, 1)
-
-[node name="BrandBlock" type="Control" parent="SafeArea/LeftColumn"]
-layout_mode = 0
-offset_left = 0.0
-offset_top = 92.0
-offset_right = 388.0
-offset_bottom = 276.0
 mouse_filter = 2
 
-[node name="JosesiWordmark" type="Control" parent="SafeArea/LeftColumn/BrandBlock"]
+[node name="SubtitleLabel" type="Label" parent="SafeArea/RightPortal/BrandBlock"]
 layout_mode = 0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 388.0
-offset_bottom = 118.0
-mouse_filter = 2
-
-[node name="Letters" type="TextureRect" parent="SafeArea/LeftColumn/BrandBlock/JosesiWordmark"]
-layout_mode = 0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 388.0
-offset_bottom = 118.0
-texture = ExtResource("3_wordmark")
-expand_mode = 1
-stretch_mode = 5
-mouse_filter = 2
-
-[node name="OLogo" type="TextureRect" parent="SafeArea/LeftColumn/BrandBlock/JosesiWordmark"]
-layout_mode = 0
-offset_left = 64.0
-offset_top = 6.0
-offset_right = 182.0
-offset_bottom = 116.0
-texture = ExtResource("4_logo")
-expand_mode = 1
-stretch_mode = 5
-mouse_filter = 2
-
-[node name="StageLine" type="Label" parent="SafeArea/LeftColumn/BrandBlock"]
-layout_mode = 0
-offset_left = 0.0
-offset_top = 118.0
-offset_right = 388.0
-offset_bottom = 150.0
-theme_override_fonts/font = ExtResource("5_ui_font")
-theme_override_font_sizes/font_size = 17
-theme_override_colors/font_color = Color(0.96, 0.98, 1, 0.98)
-text = "SEE  •  EXPLORE  •  SOLVE  •  INTEGRATE"
-vertical_alignment = 1
-
-[node name="SubtitleLabel" type="Label" parent="SafeArea/LeftColumn/BrandBlock"]
-layout_mode = 0
-offset_left = 0.0
-offset_top = 151.0
-offset_right = 388.0
-offset_bottom = 184.0
-theme_override_fonts/font = ExtResource("5_ui_font")
-theme_override_font_sizes/font_size = 15
-theme_override_colors/font_color = Color(0.89, 0.94, 1, 0.95)
+offset_left = 2.0
+offset_top = 168.0
+offset_right = 430.0
+offset_bottom = 198.0
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0.91, 0.95, 1, 0.96)
 text = "Melangkah. Mengalami. Merancang Masa Depan."
+horizontal_alignment = 1
 vertical_alignment = 1
+mouse_filter = 2
 
-[node name="MenuBlock" type="VBoxContainer" parent="SafeArea/LeftColumn"]
+[node name="MenuStack" type="VBoxContainer" parent="SafeArea/RightPortal"]
 layout_mode = 0
-offset_left = 0.0
-offset_top = 288.0
-offset_right = 374.0
-offset_bottom = 638.0
-theme_override_constants/separation = 10
+offset_left = 30.0
+offset_top = 280.0
+offset_right = 410.0
+offset_bottom = 690.0
+theme_override_constants/separation = 8
 
-[node name="PrimaryButton" type="Button" parent="SafeArea/LeftColumn/MenuBlock"]
-custom_minimum_size = Vector2(0, 72)
+[node name="PrimaryButton" parent="SafeArea/RightPortal/MenuStack" instance=ExtResource("5_button")]
+custom_minimum_size = Vector2(380, 70)
 layout_mode = 2
-focus_mode = 2
-icon = ExtResource("7_play")
-theme_override_fonts/font = ExtResource("5_ui_font")
-theme_override_font_sizes/font_size = 20
-theme_override_colors/font_color = Color(0.025, 0.10, 0.19, 1)
-theme_override_colors/font_hover_color = Color(0.025, 0.10, 0.19, 1)
-theme_override_colors/font_pressed_color = Color(0.025, 0.10, 0.19, 1)
-theme_override_styles/normal = SubResource("PrimaryNormal")
-theme_override_styles/hover = SubResource("PrimaryHover")
-theme_override_styles/pressed = SubResource("PrimaryHover")
+variant = "PRIMARY"
 text = "MULAI PERJALANAN"
+icon = ExtResource("8_play")
 
-[node name="NewJourneyButton" type="Button" parent="SafeArea/LeftColumn/MenuBlock"]
-custom_minimum_size = Vector2(0, 50)
+[node name="NewJourneyButton" parent="SafeArea/RightPortal/MenuStack" instance=ExtResource("5_button")]
+custom_minimum_size = Vector2(380, 51)
 layout_mode = 2
-focus_mode = 2
-icon = ExtResource("8_new")
-theme_override_fonts/font = ExtResource("5_ui_font")
-theme_override_font_sizes/font_size = 16
-theme_override_colors/font_color = Color(0.94, 0.97, 1, 1)
-theme_override_styles/normal = SubResource("SecondaryNormal")
-theme_override_styles/hover = SubResource("SecondaryHover")
-theme_override_styles/pressed = SubResource("SecondaryHover")
 text = "PERJALANAN BARU"
+icon = ExtResource("9_restart")
 
-[node name="PortfolioButton" type="Button" parent="SafeArea/LeftColumn/MenuBlock"]
-custom_minimum_size = Vector2(0, 50)
+[node name="PortfolioButton" parent="SafeArea/RightPortal/MenuStack" instance=ExtResource("5_button")]
+custom_minimum_size = Vector2(380, 51)
 layout_mode = 2
-focus_mode = 2
-icon = ExtResource("9_portfolio")
-theme_override_fonts/font = ExtResource("5_ui_font")
-theme_override_font_sizes/font_size = 16
-theme_override_colors/font_color = Color(0.94, 0.97, 1, 1)
-theme_override_styles/normal = SubResource("SecondaryNormal")
-theme_override_styles/hover = SubResource("SecondaryHover")
-theme_override_styles/pressed = SubResource("SecondaryHover")
 text = "PORTOFOLIO"
+icon = ExtResource("10_portfolio")
 
-[node name="SettingsButton" type="Button" parent="SafeArea/LeftColumn/MenuBlock"]
-custom_minimum_size = Vector2(0, 50)
+[node name="SettingsButton" parent="SafeArea/RightPortal/MenuStack" instance=ExtResource("5_button")]
+custom_minimum_size = Vector2(380, 51)
 layout_mode = 2
-focus_mode = 2
-icon = ExtResource("10_settings")
-theme_override_fonts/font = ExtResource("5_ui_font")
-theme_override_font_sizes/font_size = 16
-theme_override_colors/font_color = Color(0.94, 0.97, 1, 1)
-theme_override_styles/normal = SubResource("SecondaryNormal")
-theme_override_styles/hover = SubResource("SecondaryHover")
-theme_override_styles/pressed = SubResource("SecondaryHover")
 text = "PENGATURAN"
+icon = ExtResource("11_settings")
 
-[node name="AboutButton" type="Button" parent="SafeArea/LeftColumn/MenuBlock"]
-custom_minimum_size = Vector2(0, 50)
+[node name="AboutButton" parent="SafeArea/RightPortal/MenuStack" instance=ExtResource("5_button")]
+custom_minimum_size = Vector2(380, 51)
 layout_mode = 2
-focus_mode = 2
-icon = ExtResource("11_about")
-theme_override_fonts/font = ExtResource("5_ui_font")
-theme_override_font_sizes/font_size = 16
-theme_override_colors/font_color = Color(0.94, 0.97, 1, 1)
-theme_override_styles/normal = SubResource("SecondaryNormal")
-theme_override_styles/hover = SubResource("SecondaryHover")
-theme_override_styles/pressed = SubResource("SecondaryHover")
 text = "TENTANG"
+icon = ExtResource("12_about")
 
-[node name="ExitButton" type="Button" parent="SafeArea/LeftColumn/MenuBlock"]
-custom_minimum_size = Vector2(0, 50)
+[node name="ExitButton" parent="SafeArea/RightPortal/MenuStack" instance=ExtResource("5_button")]
+custom_minimum_size = Vector2(380, 51)
 layout_mode = 2
-focus_mode = 2
-icon = ExtResource("12_exit")
-theme_override_fonts/font = ExtResource("5_ui_font")
-theme_override_font_sizes/font_size = 16
-theme_override_colors/font_color = Color(0.94, 0.97, 1, 1)
-theme_override_styles/normal = SubResource("SecondaryNormal")
-theme_override_styles/hover = SubResource("SecondaryHover")
-theme_override_styles/pressed = SubResource("SecondaryHover")
 text = "KELUAR"
+icon = ExtResource("13_exit")
 
-[node name="BottomDock" type="Control" parent="SafeArea"]
+[node name="JourneyDock" type="Control" parent="SafeArea"]
 layout_mode = 0
-offset_left = 510.0
-offset_top = 700.0
-offset_right = 1488.0
-offset_bottom = 842.0
+offset_left = 612.0
+offset_top = 718.0
+offset_right = 1492.0
+offset_bottom = 822.0
 
-[node name="JourneyPanel" type="PanelContainer" parent="SafeArea/BottomDock"]
+[node name="Skin" type="NinePatchRect" parent="SafeArea/JourneyDock"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("JourneyPanelStyle")
+texture = ExtResource("16_dock")
+patch_margin_left = 54
+patch_margin_top = 42
+patch_margin_right = 54
+patch_margin_bottom = 42
+mouse_filter = 2
 
-[node name="HBox" type="HBoxContainer" parent="SafeArea/BottomDock/JourneyPanel"]
-layout_mode = 2
-theme_override_constants/separation = 18
+[node name="Header" type="Label" parent="SafeArea/JourneyDock"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 6.0
+offset_right = 250.0
+offset_bottom = 26.0
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 11
+theme_override_colors/font_color = Color(0.94, 0.98, 1, 0.96)
+text = "P E R J A L A N A N   S A A T   I N I"
+mouse_filter = 2
 
-[node name="Badge" type="Label" parent="SafeArea/BottomDock/JourneyPanel/HBox"]
-custom_minimum_size = Vector2(84, 84)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("5_ui_font")
-theme_override_font_sizes/font_size = 24
-theme_override_colors/font_color = Color(1, 0.80, 0.24, 1)
-text = "2/4"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="StageIcon" type="TextureRect" parent="SafeArea/JourneyDock"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 32.0
+offset_right = 76.0
+offset_bottom = 86.0
+texture = ExtResource("14_current")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
 
-[node name="JourneyInfo" type="Control" parent="SafeArea/BottomDock/JourneyPanel/HBox"]
-custom_minimum_size = Vector2(370, 90)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="VBox" type="VBoxContainer" parent="SafeArea/BottomDock/JourneyPanel/HBox/JourneyInfo"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 4
-
-[node name="Title" type="Label" parent="SafeArea/BottomDock/JourneyPanel/HBox/JourneyInfo/VBox"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("5_ui_font")
-theme_override_font_sizes/font_size = 19
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "SOLVE — Journey Path"
-
-[node name="SubTitle" type="Label" parent="SafeArea/BottomDock/JourneyPanel/HBox/JourneyInfo/VBox"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("5_ui_font")
+[node name="Title" type="Label" parent="SafeArea/JourneyDock"]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 31.0
+offset_right = 330.0
+offset_bottom = 55.0
+theme_override_fonts/font = ExtResource("3_font")
 theme_override_font_sizes/font_size = 14
-theme_override_colors/font_color = Color(0.84, 0.91, 0.98, 0.94)
-text = "Lanjutkan menuju Communication Studio\nPortofolio 2 / 4"
+theme_override_colors/font_color = Color(0.98, 0.99, 1, 1)
+text = "SOLVE — Communication Path"
+mouse_filter = 2
 
-[node name="Divider" type="ColorRect" parent="SafeArea/BottomDock/JourneyPanel/HBox"]
-custom_minimum_size = Vector2(2, 68)
-layout_mode = 2
-color = Color(0.14, 0.68, 1, 0.36)
-
-[node name="StageProgress" type="Control" parent="SafeArea/BottomDock/JourneyPanel/HBox"]
-custom_minimum_size = Vector2(330, 88)
-layout_mode = 2
-size_flags_horizontal = 3
-script = ExtResource("6_stage_script")
-
-[node name="SEELabel" type="Label" parent="SafeArea/BottomDock/JourneyPanel/HBox/StageProgress"]
+[node name="Portfolio" type="Label" parent="SafeArea/JourneyDock"]
 layout_mode = 0
-theme_override_fonts/font = ExtResource("5_ui_font")
+offset_left = 86.0
+offset_top = 57.0
+offset_right = 330.0
+offset_bottom = 80.0
+theme_override_fonts/font = ExtResource("3_font")
 theme_override_font_sizes/font_size = 13
-text = "SEE"
-horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.91, 0.95, 1, 0.96)
+text = "Portofolio 2 / 4"
+mouse_filter = 2
 
-[node name="EXPLORELabel" type="Label" parent="SafeArea/BottomDock/JourneyPanel/HBox/StageProgress"]
+[node name="Divider" type="ColorRect" parent="SafeArea/JourneyDock"]
 layout_mode = 0
-theme_override_fonts/font = ExtResource("5_ui_font")
-theme_override_font_sizes/font_size = 13
-text = "EXPLORE"
-horizontal_alignment = 1
+offset_left = 340.0
+offset_top = 34.0
+offset_right = 342.0
+offset_bottom = 82.0
+color = Color(0.30, 0.63, 0.88, 0.44)
+mouse_filter = 2
 
-[node name="SOLVELabel" type="Label" parent="SafeArea/BottomDock/JourneyPanel/HBox/StageProgress"]
+[node name="Destination" type="Label" parent="SafeArea/JourneyDock"]
 layout_mode = 0
-theme_override_fonts/font = ExtResource("5_ui_font")
-theme_override_font_sizes/font_size = 13
-text = "SOLVE"
-horizontal_alignment = 1
+offset_left = 360.0
+offset_top = 34.0
+offset_right = 528.0
+offset_bottom = 82.0
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.88, 0.93, 1, 0.96)
+text = "Lanjutkan menuju\nCommunication Studio"
+vertical_alignment = 1
+mouse_filter = 2
 
-[node name="INTEGRATELabel" type="Label" parent="SafeArea/BottomDock/JourneyPanel/HBox/StageProgress"]
+[node name="Chevron" type="TextureRect" parent="SafeArea/JourneyDock"]
 layout_mode = 0
-theme_override_fonts/font = ExtResource("5_ui_font")
-theme_override_font_sizes/font_size = 13
-text = "INTEGRATE"
-horizontal_alignment = 1
+offset_left = 522.0
+offset_top = 42.0
+offset_right = 558.0
+offset_bottom = 78.0
+texture = ExtResource("15_chevron")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+
+[node name="StageProgress" parent="SafeArea/JourneyDock" instance=ExtResource("6_progress")]
+layout_mode = 0
+offset_left = 565.0
+offset_top = 18.0
+offset_right = 865.0
+offset_bottom = 96.0
 
 [node name="Footer" type="Control" parent="."]
 layout_mode = 1
@@ -480,25 +348,30 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 28.0
-offset_top = -42.0
-offset_right = -28.0
-offset_bottom = -8.0
+offset_left = 36.0
+offset_top = -48.0
+offset_right = -36.0
+offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
 
 [node name="BuildLabel" type="Label" parent="Footer"]
-layout_mode = 0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 360.0
-offset_bottom = 34.0
-theme_override_fonts/font = ExtResource("5_ui_font")
-theme_override_font_sizes/font_size = 12
-theme_override_colors/font_color = Color(0.91, 0.95, 1, 0.76)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_right = 0.0
+offset_bottom = 36.0
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.94, 0.97, 1, 0.88)
 text = "Development Build  |  JOSESI  |  © 2026"
+horizontal_alignment = 2
 vertical_alignment = 1
+mouse_filter = 2
 
 [node name="ModalLayer" type="CanvasLayer" parent="."]
 
@@ -509,69 +382,79 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.58)
+color = Color(0, 0, 0, 0.56)
+mouse_filter = 0
 
-[node name="ModalPanel" type="PanelContainer" parent="ModalLayer"]
+[node name="ModalPanel" type="Control" parent="ModalLayer"]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -300.0
-offset_top = -176.0
-offset_right = 300.0
-offset_bottom = 176.0
+offset_left = -285.0
+offset_top = -150.0
+offset_right = 285.0
+offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("ModalStyle")
 
-[node name="VBox" type="VBoxContainer" parent="ModalLayer/ModalPanel"]
-layout_mode = 2
-theme_override_constants/separation = 18
+[node name="Skin" type="NinePatchRect" parent="ModalLayer/ModalPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_modal")
+patch_margin_left = 48
+patch_margin_top = 48
+patch_margin_right = 48
+patch_margin_bottom = 48
+mouse_filter = 2
 
-[node name="Title" type="Label" parent="ModalLayer/ModalPanel/VBox"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("5_ui_font")
-theme_override_font_sizes/font_size = 27
+[node name="Title" type="Label" parent="ModalLayer/ModalPanel"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 26.0
+offset_right = 538.0
+offset_bottom = 62.0
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 24
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Tentang JOSESI"
+mouse_filter = 2
 
-[node name="Body" type="RichTextLabel" parent="ModalLayer/ModalPanel/VBox"]
-custom_minimum_size = Vector2(0, 124)
-layout_mode = 2
+[node name="Body" type="RichTextLabel" parent="ModalLayer/ModalPanel"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 76.0
+offset_right = 538.0
+offset_bottom = 190.0
 bbcode_enabled = false
+fit_content = false
 scroll_active = false
-fit_content = true
-theme_override_fonts/normal_font = ExtResource("5_ui_font")
-theme_override_font_sizes/normal_font_size = 17
+theme_override_fonts/normal_font = ExtResource("3_font")
+theme_override_font_sizes/normal_font_size = 16
 text = "Keterangan modal"
+mouse_filter = 2
 
-[node name="ButtonRow" type="HBoxContainer" parent="ModalLayer/ModalPanel/VBox"]
-layout_mode = 2
+[node name="ButtonRow" type="HBoxContainer" parent="ModalLayer/ModalPanel"]
+layout_mode = 0
+offset_left = 248.0
+offset_top = 222.0
+offset_right = 538.0
+offset_bottom = 274.0
+theme_override_constants/separation = 10
 alignment = 2
-theme_override_constants/separation = 12
 
-[node name="CancelButton" type="Button" parent="ModalLayer/ModalPanel/VBox/ButtonRow"]
-custom_minimum_size = Vector2(132, 46)
+[node name="CancelButton" parent="ModalLayer/ModalPanel/ButtonRow" instance=ExtResource("5_button")]
+custom_minimum_size = Vector2(135, 48)
 layout_mode = 2
-focus_mode = 2
-theme_override_fonts/font = ExtResource("5_ui_font")
-theme_override_font_sizes/font_size = 16
-theme_override_colors/font_color = Color(0.95, 0.97, 1, 1)
-theme_override_styles/normal = SubResource("SecondaryNormal")
-theme_override_styles/hover = SubResource("SecondaryHover")
-theme_override_styles/pressed = SubResource("SecondaryHover")
 text = "TUTUP"
 
-[node name="ConfirmButton" type="Button" parent="ModalLayer/ModalPanel/VBox/ButtonRow"]
-custom_minimum_size = Vector2(144, 46)
+[node name="ConfirmButton" parent="ModalLayer/ModalPanel/ButtonRow" instance=ExtResource("5_button")]
+custom_minimum_size = Vector2(135, 48)
 layout_mode = 2
-focus_mode = 2
-theme_override_fonts/font = ExtResource("5_ui_font")
-theme_override_font_sizes/font_size = 16
-theme_override_colors/font_color = Color(0.025, 0.10, 0.19, 1)
-theme_override_styles/normal = SubResource("PrimaryNormal")
-theme_override_styles/hover = SubResource("PrimaryHover")
-theme_override_styles/pressed = SubResource("PrimaryHover")
+variant = "PRIMARY"
 text = "OK"

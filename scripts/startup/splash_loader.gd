@@ -20,7 +20,6 @@ var _phase_index: int = 0
 var _phase_elapsed: float = 0.0
 var _display_progress: float = 0.0
 var _transitioning: bool = false
-var _resource_status: int = ResourceLoader.THREAD_LOAD_INVALID_RESOURCE
 var _loaded_resource: PackedScene
 
 func _ready() -> void:
@@ -30,19 +29,18 @@ func _ready() -> void:
 	version_label.text = "JOSESI v0.1.1 • DEVELOPMENT BUILD"
 	fade_rect.modulate.a = 1.0
 	trace.call("set_progress", 0.0)
-	ResourceLoader.load_threaded_request(TARGET_SCENE)
 	create_tween().tween_property(fade_rect, "modulate:a", 0.0, 0.55).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	set_process(true)
+	call_deferred("_load_target_scene")
 
 func _process(delta: float) -> void:
 	_phase_elapsed += delta
-	_update_target_phase(delta)
+	_update_target_phase()
 	_update_loader_progress(delta)
-	_poll_threaded_load()
 	if _can_finish_loading():
 		_begin_transition()
 
-func _update_target_phase(_delta: float) -> void:
+func _update_target_phase() -> void:
 	if _phase_index >= PHASES.size() - 1:
 		return
 	var current_target := float(PHASES[_phase_index].progress)
@@ -52,25 +50,24 @@ func _update_target_phase(_delta: float) -> void:
 		status_label.text = str(PHASES[_phase_index].label)
 
 func _update_loader_progress(delta: float) -> void:
-	var phase_target := float(PHASES[_phase_index].progress)
-	var loader_target := phase_target
-	if _resource_status == ResourceLoader.THREAD_LOAD_LOADED:
-		loader_target = 1.0
-	elif _resource_status == ResourceLoader.THREAD_LOAD_IN_PROGRESS:
-		var progress_array := []
-		ResourceLoader.load_threaded_get_status(TARGET_SCENE, progress_array)
-		if progress_array.size() > 0:
-			loader_target = maxf(loader_target, clamp(float(progress_array[0]), 0.0, 1.0) * 0.96)
+	var phase_target: float = float(PHASES[_phase_index].progress)
+	var loader_target: float = 1.0 if _loaded_resource != null else phase_target
 	_display_progress = move_toward(_display_progress, loader_target, delta * 0.42)
 	trace.call("set_progress", _display_progress)
 	percent_label.text = "%d%%" % int(round(_display_progress * 100.0))
 
-func _poll_threaded_load() -> void:
+func _load_target_scene() -> void:
 	if _loaded_resource != null:
 		return
-	_resource_status = ResourceLoader.load_threaded_get_status(TARGET_SCENE)
-	if _resource_status == ResourceLoader.THREAD_LOAD_LOADED:
-		_loaded_resource = ResourceLoader.load_threaded_get(TARGET_SCENE) as PackedScene
+	var resource: Resource = ResourceLoader.load(TARGET_SCENE, "PackedScene")
+	if resource is PackedScene:
+		_loaded_resource = resource as PackedScene
+		print("JOSESI_SPLASH_TARGET_LOAD_READY=TRUE mode=DEFERRED_SYNC")
+		return
+	push_error("JOSESI_SPLASH_TARGET_LOAD_READY=FALSE reason=target_scene_load_failed")
+
+func is_target_scene_ready() -> bool:
+	return _loaded_resource != null
 
 func _can_finish_loading() -> bool:
 	return _loaded_resource != null and _display_progress >= 0.995 and not _transitioning

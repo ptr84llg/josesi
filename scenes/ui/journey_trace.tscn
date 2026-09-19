@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/journey_trace.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/ui/journey/splash_trace_track.png" id="2_track"]
+[ext_resource type="Texture2D" path="res://assets/ui/journey/splash_trace_fill.png" id="3_fill"]
+[ext_resource type="Texture2D" path="res://assets/ui/journey/node_available.png" id="4_node"]
+
+[node name="JourneyTrace" type="Control"]
+custom_minimum_size = Vector2(680, 106)
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("1_script")
+
+[node name="Track" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_track")
+expand_mode = 1
+stretch_mode = 6
+mouse_filter = 2
+
+[node name="RevealClip" type="Control" parent="."]
+layout_mode = 0
+clip_contents = true
+mouse_filter = 2
+
+[node name="Fill" type="TextureRect" parent="RevealClip"]
+layout_mode = 0
+texture = ExtResource("3_fill")
+expand_mode = 1
+stretch_mode = 6
+mouse_filter = 2
+
+[node name="CurrentNode" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 46.0
+offset_bottom = 46.0
+texture = ExtResource("4_node")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2

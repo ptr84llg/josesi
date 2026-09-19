@@ -1,0 +1,79 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/stage_progress_strip.gd" id="1_script"]
+[ext_resource type="FontFile" path="res://assets/fonts/Manrope-VariableFont_wght.ttf" id="2_font"]
+[ext_resource type="Texture2D" path="res://assets/ui/icons/complete.png" id="3_complete"]
+[ext_resource type="Texture2D" path="res://assets/ui/icons/current.png" id="4_current"]
+[ext_resource type="Texture2D" path="res://assets/ui/journey/node_available.png" id="5_available"]
+[ext_resource type="Texture2D" path="res://assets/ui/icons/locked.png" id="6_locked"]
+
+[node name="StageProgressStrip" type="Control"]
+custom_minimum_size = Vector2(330, 78)
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("1_script")
+complete_texture = ExtResource("3_complete")
+current_texture = ExtResource("4_current")
+available_texture = ExtResource("5_available")
+locked_texture = ExtResource("6_locked")
+
+[node name="SEEIcon" type="TextureRect" parent="."]
+layout_mode = 0
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+
+[node name="SEELabel" type="Label" parent="."]
+layout_mode = 0
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 12
+text = "SEE"
+horizontal_alignment = 1
+vertical_alignment = 1
+mouse_filter = 2
+
+[node name="EXPLOREIcon" type="TextureRect" parent="."]
+layout_mode = 0
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+
+[node name="EXPLORELabel" type="Label" parent="."]
+layout_mode = 0
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 12
+text = "EXPLORE"
+horizontal_alignment = 1
+vertical_alignment = 1
+mouse_filter = 2
+
+[node name="SOLVEIcon" type="TextureRect" parent="."]
+layout_mode = 0
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+
+[node name="SOLVELabel" type="Label" parent="."]
+layout_mode = 0
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 12
+text = "SOLVE"
+horizontal_alignment = 1
+vertical_alignment = 1
+mouse_filter = 2
+
+[node name="INTEGRATEIcon" type="TextureRect" parent="."]
+layout_mode = 0
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+
+[node name="INTEGRATELabel" type="Label" parent="."]
+layout_mode = 0
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 12
+text = "INTEGRATE"
+horizontal_alignment = 1
+vertical_alignment = 1
+mouse_filter = 2

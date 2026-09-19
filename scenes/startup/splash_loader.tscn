@@ -1,18 +1,10 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene load_steps=6 format=3]
 
 [ext_resource type="Script" path="res://scripts/startup/splash_loader.gd" id="1_script"]
-[ext_resource type="Texture2D" path="res://assets/runtime/splash_visual_master.png" id="2_visual"]
-[ext_resource type="FontFile" path="res://assets/fonts/Manrope-VariableFont_wght.ttf" id="3_ui_font"]
-[ext_resource type="Script" path="res://scripts/ui/journey_trace.gd" id="4_trace_script"]
-
-[sub_resource type="StyleBoxFlat" id="DynamicAreaStyle"]
-bg_color = Color(0.015, 0.075, 0.18, 0.74)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
-shadow_color = Color(0, 0, 0, 0.18)
-shadow_size = 18
+[ext_resource type="Texture2D" path="res://assets/backgrounds/splash/background_splash_loader.png" id="2_background"]
+[ext_resource type="FontFile" path="res://assets/fonts/Manrope-VariableFont_wght.ttf" id="3_font"]
+[ext_resource type="PackedScene" path="res://scenes/ui/josesi_wordmark.tscn" id="4_wordmark"]
+[ext_resource type="PackedScene" path="res://scenes/ui/journey_trace.tscn" id="5_trace"]
 
 [node name="SplashLoader" type="Control"]
 layout_mode = 3
@@ -32,16 +24,26 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="VisualMaster" type="TextureRect" parent="Background"]
+[node name="Environment" type="TextureRect" parent="Background"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_visual")
+texture = ExtResource("2_background")
 expand_mode = 1
 stretch_mode = 6
+mouse_filter = 2
+
+[node name="Atmosphere" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.012, 0.08, 0.20, 0.38)
 mouse_filter = 2
 
 [node name="SafeArea" type="Control" parent="."]
@@ -52,94 +54,130 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="InstitutionRow" type="Control" parent="SafeArea"]
+layout_mode = 0
+offset_left = 392.0
+offset_top = 86.0
+offset_right = 1144.0
+offset_bottom = 158.0
+mouse_filter = 2
+
+[node name="LeftLine" type="ColorRect" parent="SafeArea/InstitutionRow"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 28.0
+offset_right = 110.0
+offset_bottom = 30.0
+color = Color(0.92, 0.96, 1, 0.80)
+mouse_filter = 2
+
+[node name="RightLine" type="ColorRect" parent="SafeArea/InstitutionRow"]
+layout_mode = 0
+offset_left = 642.0
+offset_top = 28.0
+offset_right = 752.0
+offset_bottom = 30.0
+color = Color(0.92, 0.96, 1, 0.80)
+mouse_filter = 2
+
+[node name="InstitutionLabel" type="Label" parent="SafeArea/InstitutionRow"]
+layout_mode = 0
+offset_left = 118.0
+offset_top = 0.0
+offset_right = 634.0
+offset_bottom = 62.0
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0.96, 0.98, 1, 0.97)
+text = "D E S A I N   K O M U N I K A S I   V I S U A L\nU N I V E R S I T A S   P G R I   S I L A M P A R I"
+horizontal_alignment = 1
+vertical_alignment = 1
+mouse_filter = 2
+
+[node name="Wordmark" parent="SafeArea" instance=ExtResource("4_wordmark")]
+layout_mode = 0
+offset_left = 332.0
+offset_top = 178.0
+offset_right = 1204.0
+offset_bottom = 468.0
+
 [node name="ContentStack" type="Control" parent="SafeArea"]
 layout_mode = 0
-offset_left = 250.0
-offset_top = 405.0
-offset_right = 1286.0
-offset_bottom = 820.0
+offset_left = 302.0
+offset_top = 454.0
+offset_right = 1234.0
+offset_bottom = 778.0
+mouse_filter = 2
 
 [node name="StageLabel" type="Label" parent="SafeArea/ContentStack"]
 layout_mode = 0
-offset_left = 160.0
+offset_left = 76.0
 offset_top = 0.0
-offset_right = 876.0
-offset_bottom = 50.0
-theme_override_fonts/font = ExtResource("3_ui_font")
-theme_override_font_sizes/font_size = 28
-theme_override_colors/font_color = Color(0.95, 0.98, 1, 0.97)
-text = "SEE  •  EXPLORE  •  SOLVE  •  INTEGRATE"
+offset_right = 856.0
+offset_bottom = 44.0
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 25
+theme_override_colors/font_color = Color(0.98, 0.99, 1, 0.98)
+text = "S E E   •   E X P L O R E   •   S O L V E   •   I N T E G R A T E"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="DynamicPanel" type="PanelContainer" parent="SafeArea/ContentStack"]
-layout_mode = 0
-offset_left = 122.0
-offset_top = 82.0
-offset_right = 914.0
-offset_bottom = 404.0
-theme_override_styles/panel = SubResource("DynamicAreaStyle")
 mouse_filter = 2
 
 [node name="StatusStack" type="VBoxContainer" parent="SafeArea/ContentStack"]
 layout_mode = 0
-offset_left = 190.0
-offset_top = 112.0
-offset_right = 846.0
-offset_bottom = 222.0
-theme_override_constants/separation = 8
+offset_left = 172.0
+offset_top = 92.0
+offset_right = 760.0
+offset_bottom = 166.0
+theme_override_constants/separation = 5
 alignment = 1
 
 [node name="HeadlineLabel" type="Label" parent="SafeArea/ContentStack/StatusStack"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_ui_font")
-theme_override_font_sizes/font_size = 39
-theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 28
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0.01, 0.05, 0.14, 0.72)
 text = "MENYIAPKAN PERJALANAN"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="StatusLabel" type="Label" parent="SafeArea/ContentStack/StatusStack"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_ui_font")
-theme_override_font_sizes/font_size = 21
-theme_override_colors/font_color = Color(0.86, 0.92, 1, 0.96)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.82, 0.89, 1, 0.96)
 text = "Menyiapkan antarmuka..."
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LoaderStack" type="Control" parent="SafeArea/ContentStack"]
 layout_mode = 0
-offset_left = 178.0
-offset_top = 226.0
-offset_right = 858.0
-offset_bottom = 392.0
+offset_left = 126.0
+offset_top = 178.0
+offset_right = 806.0
+offset_bottom = 310.0
+mouse_filter = 2
 
-[node name="JourneyTrace" type="Control" parent="SafeArea/ContentStack/LoaderStack"]
+[node name="JourneyTrace" parent="SafeArea/ContentStack/LoaderStack" instance=ExtResource("5_trace")]
 layout_mode = 0
 offset_left = 0.0
-offset_top = 6.0
+offset_top = 0.0
 offset_right = 680.0
-offset_bottom = 82.0
-script = ExtResource("4_trace_script")
-amplitude = 14.0
-thickness = 7.0
-glow_thickness = 16.0
+offset_bottom = 106.0
 
 [node name="PercentLabel" type="Label" parent="SafeArea/ContentStack/LoaderStack"]
 layout_mode = 0
 offset_left = 0.0
-offset_top = 82.0
+offset_top = 92.0
 offset_right = 680.0
-offset_bottom = 138.0
-theme_override_fonts/font = ExtResource("3_ui_font")
-theme_override_font_sizes/font_size = 28
+offset_bottom = 132.0
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 24
 theme_override_colors/font_color = Color(1, 1, 1, 0.98)
 text = "0%"
 horizontal_alignment = 1
 vertical_alignment = 1
+mouse_filter = 2
 
 [node name="Footer" type="Control" parent="."]
 layout_mode = 1
@@ -147,10 +185,10 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 40.0
-offset_top = -52.0
-offset_right = -40.0
-offset_bottom = -12.0
+offset_left = 36.0
+offset_top = -54.0
+offset_right = -36.0
+offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
@@ -161,16 +199,16 @@ anchors_preset = 3
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -360.0
-offset_top = 0.0
+offset_left = -350.0
 offset_right = 0.0
 offset_bottom = 40.0
-theme_override_fonts/font = ExtResource("3_ui_font")
+theme_override_fonts/font = ExtResource("3_font")
 theme_override_font_sizes/font_size = 14
-theme_override_colors/font_color = Color(0.91, 0.95, 1, 0.84)
+theme_override_colors/font_color = Color(0.91, 0.95, 1, 0.88)
 text = "JOSESI v0.1.1 • DEVELOPMENT BUILD"
 horizontal_alignment = 2
 vertical_alignment = 1
+mouse_filter = 2
 
 [node name="FadeLayer" type="CanvasLayer" parent="."]
 
@@ -181,3 +219,4 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.01, 0.03, 0.09, 1)
+mouse_filter = 2
