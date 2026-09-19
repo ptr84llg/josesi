@@ -42,7 +42,7 @@ func _process(delta: float) -> void:
 	if _can_finish_loading():
 		_begin_transition()
 
-func _update_target_phase(delta: float) -> void:
+func _update_target_phase(_delta: float) -> void:
 	if _phase_index >= PHASES.size() - 1:
 		return
 	var current_target := float(PHASES[_phase_index].progress)
