@@ -1,94 +1,95 @@
 extends Control
 
-@export_range(0.0, 1.0, 0.001) var progress: float:
-	get:
-		return _progress
+@export_range(0.0, 1.0, 0.001) var progress: float = 0.0:
 	set(value):
-		_progress = clampf(value, 0.0, 1.0)
+		progress = clamp(value, 0.0, 1.0)
 		queue_redraw()
 
-var _progress := 0.0
+@export var amplitude: float = 18.0
+@export var thickness: float = 7.0
+@export var glow_thickness: float = 16.0
+@export var show_nodes: bool = true
+@export var line_start_ratio: float = 0.10
+@export var line_end_ratio: float = 0.90
 
-@export var future_color := Color(0.35, 0.50, 0.70, 0.42)
-@export var node_outline_color := Color(0.78, 0.86, 0.96, 0.95)
-@export var line_width := 4.0
-@export var glow_width := 12.0
-@export var transition_glow_multiplier := 1.0
-
-const TRACE_COLORS := [
-	Color("2c67f2"),
-	Color("29b3ff"),
-	Color("60d8e7"),
-	Color("f4c43a"),
-	Color("ff7a3a"),
-]
-
-var _transition_mode := false
+const COLOR_TRACK := Color(0.53, 0.67, 0.85, 0.30)
+const GLOW_TRACK := Color(0.17, 0.48, 0.92, 0.12)
+const NODE_OUTLINE := Color(0.89, 0.95, 1.0, 0.88)
+const NODE_BG := Color(0.03, 0.10, 0.20, 0.96)
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	queue_redraw()
 
-func set_progress(value: float) -> void:
-	progress = value
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_RESIZED and is_node_ready():
+		queue_redraw()
 
-func set_transition_mode(enabled: bool) -> void:
-	_transition_mode = enabled
-	transition_glow_multiplier = 1.55 if enabled else 1.0
+func set_progress(value: float) -> void:
+	progress = clamp(value, 0.0, 1.0)
 	queue_redraw()
 
 func _draw() -> void:
 	if size.x <= 1.0 or size.y <= 1.0:
 		return
 
-	var points := _build_trace_points()
-	if points.size() < 2:
-		return
+	var pts := _curve_points()
+	for i in range(pts.size() - 1):
+		draw_line(pts[i], pts[i + 1], GLOW_TRACK, glow_thickness, true)
+		draw_line(pts[i], pts[i + 1], COLOR_TRACK, 3.0, true)
 
-	draw_polyline(points, future_color, 3.0, true)
-
-	var segment_count := points.size() - 1
-	var completed_segments := clampi(int(floor(progress * float(segment_count))), 0, segment_count)
-	for i in range(completed_segments):
-		var t := float(i) / maxf(1.0, float(segment_count - 1))
+	var visible_segments := maxi(1, int(round(progress * float(pts.size() - 1))))
+	for i in range(min(visible_segments, pts.size() - 1)):
+		var t := 0.0
+		if visible_segments > 1:
+			t = float(i) / float(visible_segments - 1)
 		var color := _gradient_color(t)
-		var glow := Color(color.r, color.g, color.b, 0.20)
-		draw_line(points[i], points[i + 1], glow, glow_width * transition_glow_multiplier, true)
-		draw_line(points[i], points[i + 1], color, line_width, true)
+		draw_line(pts[i], pts[i + 1], color.darkened(0.10), glow_thickness, true)
+		draw_line(pts[i], pts[i + 1], color, thickness, true)
 
-	if progress > 0.0:
-		var exact_index := clampf(progress * float(segment_count), 0.0, float(segment_count))
-		var low := clampi(int(floor(exact_index)), 0, segment_count - 1)
-		var local_t := exact_index - float(low)
-		var cursor := points[low].lerp(points[low + 1], local_t)
-		var cursor_color := _gradient_color(progress)
-		draw_circle(cursor, 14.0 * transition_glow_multiplier, Color(cursor_color.r, cursor_color.g, cursor_color.b, 0.20))
-		draw_circle(cursor, 8.0, cursor_color)
-		draw_arc(cursor, 11.0, 0.0, TAU, 32, node_outline_color, 2.0, true)
+	if show_nodes:
+		var nodes := _node_positions()
+		for i in range(nodes.size()):
+			var active := progress >= _node_progress_threshold(i)
+			var node_color := _gradient_color(float(i) / maxf(1.0, float(nodes.size() - 1))) if active else Color(0.58, 0.67, 0.80, 0.55)
+			draw_circle(nodes[i], 16.0, NODE_BG)
+			draw_arc(nodes[i], 16.0, 0.0, TAU, 40, NODE_OUTLINE, 2.5, true)
+			draw_circle(nodes[i], 9.0, node_color)
 
-	_draw_endpoint(points[0], progress > 0.01, TRACE_COLORS[0])
-	_draw_endpoint(points[points.size() - 1], progress >= 0.999, TRACE_COLORS[TRACE_COLORS.size() - 1])
+func _curve_points() -> PackedVector2Array:
+	var arr := PackedVector2Array()
+	var start_x := size.x * line_start_ratio
+	var end_x := size.x * line_end_ratio
+	var width_span := maxf(1.0, end_x - start_x)
+	var base_y := size.y * 0.52
+	var samples := 84
+	for i in range(samples + 1):
+		var t := float(i) / float(samples)
+		var x := start_x + (width_span * t)
+		var y := base_y + sin(t * TAU * 1.85) * amplitude * 0.55
+		arr.append(Vector2(x, y))
+	return arr
 
-func _build_trace_points() -> PackedVector2Array:
-	var result := PackedVector2Array()
-	var count := 80
-	var left := 16.0
-	var right := maxf(left + 1.0, size.x - 16.0)
-	var center_y := size.y * 0.50
-	for i in range(count):
-		var t := float(i) / float(count - 1)
-		var x := lerpf(left, right, t)
-		var wave := sin(t * TAU * 1.15) * 7.0 + sin(t * TAU * 2.40 + 0.7) * 2.5
-		result.append(Vector2(x, center_y + wave))
-	return result
+func _node_positions() -> PackedVector2Array:
+	return PackedVector2Array([
+		Vector2(size.x * line_start_ratio, size.y * 0.52),
+		Vector2(size.x * 0.50, size.y * 0.45),
+		Vector2(size.x * line_end_ratio, size.y * 0.55),
+	])
+
+func _node_progress_threshold(index: int) -> float:
+	match index:
+		0:
+			return 0.02
+		1:
+			return 0.50
+		_:
+			return 0.98
 
 func _gradient_color(t: float) -> Color:
-	var clamped := clampf(t, 0.0, 1.0)
-	var scaled := clamped * float(TRACE_COLORS.size() - 1)
-	var index := clampi(int(floor(scaled)), 0, TRACE_COLORS.size() - 2)
-	return TRACE_COLORS[index].lerp(TRACE_COLORS[index + 1], scaled - float(index))
-
-func _draw_endpoint(position: Vector2, active: bool, active_color: Color) -> void:
-	var fill := active_color if active else Color(0.18, 0.30, 0.48, 0.90)
-	draw_circle(position, 8.0, fill)
-	draw_arc(position, 10.0, 0.0, TAU, 32, node_outline_color, 2.0, true)
+	t = clamp(t, 0.0, 1.0)
+	if t < 0.34:
+		return Color(1.0, 0.37, 0.29, 1.0).lerp(Color(1.0, 0.86, 0.12, 1.0), t / 0.34)
+	elif t < 0.68:
+		return Color(1.0, 0.86, 0.12, 1.0).lerp(Color(0.15, 0.86, 0.54, 1.0), (t - 0.34) / 0.34)
+	return Color(0.15, 0.86, 0.54, 1.0).lerp(Color(0.12, 0.69, 1.0, 1.0), (t - 0.68) / 0.32)
